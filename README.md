@@ -2,8 +2,6 @@
 
 给 [DSH（DeepSeek Harness）](https://github.com/deepseek-ai) 写的一个插件：**点一下按钮，屏幕上就有一首古筝，脚边浮起一汪跟着声音起伏的水。**
 
-![demo](docs/demo.gif)
-
 > 水是纯装饰层，四角穿透，不接事件，拖动随意。原有对话一个字都不受影响。
 
 ---
@@ -16,7 +14,7 @@
         ▼
    当前对话派出一个子会话
         │
-        ├─ 读 pond_knowledge()   ← 工具自带的中国音乐know-how（乐记、溪山琴况、绰注吟猱…）
+        ├─ 读 pond_knowledge()   ← 工具自带的中国音乐 know-how（乐记、溪山琴况、绰注吟猱…）
         ├─ 按「琴语言」写谱
         └─ 交回 pond_play(score)
                 │
@@ -148,7 +146,7 @@ GUZHENG_SERVE_PORT=8792
 | POST | `/submit` | `{title, score}` → 直接交谱面，同步返回渲染结果 |
 | POST | `/queue` | `{op:'played', id}` → 客户端播完把自己摘掉 |
 | GET | `/audio/<id>.wav` | 音频流 |
-| GET | `/asset/<name>` | 水层那两两个库 |
+| GET | `/asset/<name>` | 水层那两个库 |
 
 工具侧（子会话看得见的）：
 
