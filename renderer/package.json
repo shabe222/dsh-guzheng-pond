@@ -1,0 +1,14 @@
+{
+  "name": "guzheng-pond-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "古筝谱面渲染器：把琴语言谱面在 headless Chrome 里用 Web Audio 离线渲成 wav",
+  "scripts": {
+    "serve": "node dev/serve.mjs . 8792",
+    "render": "node dev/render-qin.mjs demo.js demo.wav"
+  },
+  "dependencies": {
+    "playwright-core": "^1.64.1"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "dsh-guzheng-pond",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "DSH 插件：主对话一个按钮 → 派子会话按知识手册编一曲古筝 → 离线渲成 wav 入队 → 页面角落那一汪透明、可拖动的水跟着声音起涟漪。",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "quality.js",
+    "cordis.patch.yml",
+    "assets/*.js",
+    "renderer/dev/*",
+    "renderer/src/audio/*",
+    "renderer/samples/guzheng/*",
+    "renderer/tray/knowledge/**/*",
+    "renderer/vendor/Tone.js",
+    "README.md",
+    "PRODUCT.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "renderer:install": "npm --prefix renderer install",
+    "renderer:serve": "npm --prefix renderer run serve",
+    "renderer:demo": "npm --prefix renderer run render"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/dsh-llm": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "guzheng",
+    "qin",
+    "generative-music",
+    "web-audio",
+    "ambient"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shabe222/dsh-guzheng-pond.git"
+  },
+  "homepage": "https://github.com/shabe222/dsh-guzheng-pond#readme",
+  "license": "MIT"
+}

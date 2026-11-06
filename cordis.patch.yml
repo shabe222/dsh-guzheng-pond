@@ -1,0 +1,15 @@
+# dsh-guzheng-pond — bundle patch layer
+#
+# 主对话按钮 + 子会话编曲 + 角落那一汪水。
+#
+# 两处路径语义别搞混（踩过坑）：
+#   - 本文件由 profile boot 从「包根目录」解析，所以 name 必须是包名本身，
+#     写成 ./node_modules/dsh-guzheng-pond/index.js 会被拼成
+#     <包根>/node_modules/dsh-guzheng-pond/index.js → ERR_MODULE_NOT_FOUND，整棵插件树起不来。
+#   - profile 自己的 cordis.patch.yml 才是按 profile 根解析的。
+#
+# name 等于包名还有一层作用：client-modules 扫描会据此解析本包的 ./client 入口
+# （见 package.json 的 dsh.client），把浏览器半边送到 /plugins/dsh-guzheng-pond/client.js。
+- insert:
+    - id: guzheng-pond
+      name: dsh-guzheng-pond
